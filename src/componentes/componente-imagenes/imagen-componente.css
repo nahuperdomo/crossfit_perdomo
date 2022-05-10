@@ -2,8 +2,12 @@
    position: relative;
    display: inline-block;
    text-align: center;
+   margin-bottom: 2rem;
 }
+.divImagen:hover{
+    transform: scale(1);
 
+}
 .divImagenes{
     display: flex;
     justify-content: space-evenly;
@@ -19,6 +23,7 @@
     color: black;
     font-size: 1.3rem;
 }
+
 img{
     width: 25rem;
     height: 25rem;
@@ -26,4 +31,5 @@ img{
 
 img:hover{
     opacity: 80%;
+    transform: scale(1.1);
 }
