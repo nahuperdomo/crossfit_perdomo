@@ -16,6 +16,7 @@ function Contador(props){
               )
         }else{
             setCount( count + 1 );
+
         }
     }
 

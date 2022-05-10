@@ -46,6 +46,7 @@ root.render(
     <div className='divBtnAgregar'>
     <AgregarCarrito/>
     </div>
+    <Footer/>
     
   </React.StrictMode>
 );
