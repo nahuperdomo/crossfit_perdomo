@@ -1,0 +1,55 @@
+.contador{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 25rem;
+    color: whitesmoke;
+    position: absolute;
+    display: flex;
+    justify-content: space-around
+}
+
+
+.menos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.8rem;
+    width: 5rem;
+    background-color: red;
+    font-size:xx-large;
+    text-align: center;
+}
+
+.mas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.8rem;
+    width: 5rem;
+    background-color: rgb(30, 238, 11);
+    font-size:xx-large;
+    text-align: center;
+}
+
+.cero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.8rem;
+    width: 5rem;
+    background-color: rgb(89, 90, 88);
+    font-size:xx-large;
+    text-align: center;
+    border: 1px solid whitesmoke;
+    
+    
+}
+
+button{
+    border-style: none;
+    border-radius: 2px ;
+    border: 1px solid whitesmoke;
+}
+button:hover{
+    cursor: pointer;
+}

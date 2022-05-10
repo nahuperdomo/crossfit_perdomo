@@ -1,0 +1,20 @@
+.AgregarCarrito{
+    background-color: rgb(30, 238, 11);
+    border: 1px solid whitesmoke;
+    margin-bottom: 1rem;
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
+    color: whitesmoke;
+    border-radius: 0.5rem;
+    border-style: none;
+}
+.AgregarCarrito:hover{
+    transform: scale(1.1);
+}
+
+.divBtnAgregar{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
