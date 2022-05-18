@@ -21,7 +21,7 @@ import EstilosFooter from './componentes/footer/footer.css'
 import EstilosContador from './componentes/contador/contador.css'
 import EstilosAgregarCarrito from './componentes/btn-agregar-carrito/btn-agregar-carrito.css'
 import Item from './componentes/item.js/item';
-import ItemList from './componentes/item-list/item-list';
+import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -47,8 +47,8 @@ root.render(
     <div className='divBtnAgregar'>
     <AgregarCarrito/>
     </div>
-   <ItemList/>
-    
+   
+  <ItemListContainer/>
   </React.StrictMode>
 );
 reportWebVitals();
