@@ -1,9 +1,11 @@
 import React from "react";
-import Item from "./Item";
-const ItemList = ({ items }) => {
+import Item from "../Item/Item";
+
+
+const ItemList = (props) => {
 
     return(
-        valor.map((item) => (
+        props.items.map((item) => (
             <Item imagen={item.imagen} descripcion = {item.descripcion}/>
         ))
     );

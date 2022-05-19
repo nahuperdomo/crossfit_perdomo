@@ -20,7 +20,7 @@ import EstilosCardImagen from './componentes/componente-imagenes/imagen-componen
 import EstilosFooter from './componentes/footer/footer.css'
 import EstilosContador from './componentes/contador/contador.css'
 import EstilosAgregarCarrito from './componentes/btn-agregar-carrito/btn-agregar-carrito.css'
-import Item from './componentes/item.js/item';
+import Item from './componentes/Item/Item'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -47,8 +47,9 @@ root.render(
     <div className='divBtnAgregar'>
     <AgregarCarrito/>
     </div>
-   
-  <ItemListContainer/>
+    <div className='itemsApi'>
+      <ItemListContainer/>
+    </div>
   </React.StrictMode>
 );
 reportWebVitals();

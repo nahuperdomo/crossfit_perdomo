@@ -4,9 +4,9 @@ function Item(props){
     return(
             <div className="divItem">
                 <div className="item">
-                <img src="{props.imagen}"></img>
-                <p>{props.descripcion}</p>
-                <button>Comprar</button>
+                <img src={props.imagen}></img>
+                <p className="descpricionApi">{props.descripcion}</p>
+                <button className="AgregarCarrito">Comprar</button>
                 {console.log(props.imagen)}
                 </div>
             </div>

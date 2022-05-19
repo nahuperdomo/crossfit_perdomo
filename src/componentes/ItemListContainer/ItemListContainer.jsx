@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ItemList from "./ItemList";
+import ItemList from "../ItemList/ItemList";
 
 let objetos = [
   {
     id: '1',
-    imagen:
-      'https://cdn.shopify.com/s/files/1/2137/4785/products/CallerasCarbono3agujerosRosadas2.jpg?v=1631892947&width=960',
+    imagen: 'https://cdn.shopify.com/s/files/1/2137/4785/products/CallerasCarbono3agujerosRosadas2.jpg?v=1631892947&width=960',
     descripcion: 'Esta es una descripcion',
   },
   {
@@ -46,7 +45,7 @@ const ItemListConainer= () => {
     
     return (
     
-        <ItemList items={valor} />
+        <ItemList items={valor}/>
     
   );
 }
