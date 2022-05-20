@@ -1,13 +1,18 @@
-
+import {Link} from 'react-router-dom';
+import React from 'react';
 function Navbar() {
     return (
       <div className="Navbar">
         <ul className="navbar">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Sobre Nosotros</a></li>
-            <li><a href="#">Locales</a></li>
-
+            <Link to='/'>
+              <li><a href="#">Inicio</a></li>
+            </Link>
+            <Link to='/productos'>
+              <li><a href="#">Productos</a></li>
+            </Link>
+            <Link to='/tienda'>
+              <li><a href="#">Tienda</a></li>
+            </Link>
         </ul>
       </div>
     );

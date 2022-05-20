@@ -15,7 +15,7 @@
 }
 
 .textoEncima{
-    position: absolute;
+   /*position: absolute;*/
     background-color: rgb(255, 255, 255);
     opacity: 80%;
     bottom: 0%;

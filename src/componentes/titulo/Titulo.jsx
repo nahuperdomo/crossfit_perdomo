@@ -1,6 +1,9 @@
 function Titulo(props) {
     return (
-     <h1>{props.titulo}</h1>
+      <div>
+        <h1>{props.titulo}</h1>
+        <h2>{'En esta pagina podes encontrar nuestros productos '}</h2>
+      </div>
     );
   }
 

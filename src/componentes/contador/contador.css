@@ -3,7 +3,7 @@
     margin-bottom: 2rem;
     width: 25rem;
     color: whitesmoke;
-    position: absolute;
+    /*position: absolute;*/
     display: flex;
     justify-content: space-around
 }

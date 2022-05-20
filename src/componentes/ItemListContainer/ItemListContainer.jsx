@@ -34,18 +34,17 @@ let objetos = [
 
 const ItemListConainer= () => {
     const[valor, setValor] = useState([]);
-    const[loading, setLoading] = useState(true) //todavia no lo implemente
-
+    const[loading, setLoading] = useState(true)
 
     useEffect(() => {
         getFetch.then(response => setValor(response))
         .catch(error => console.log(error))
-        .finally(() => setLoading(false)) //todavia no lo implemente
+        .finally(() => setLoading(false)) 
     },[])
     
     return (
     
-        <ItemList items={valor}/>
+        <ItemList items={valor} cargando={loading}/>
     
   );
 }

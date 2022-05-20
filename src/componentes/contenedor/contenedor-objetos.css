@@ -1,0 +1,13 @@
+.imagen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Productos{
+    display: flex;
+}
+
+.textoEncima{
+    margin: 2rem 2rem 2rem 2rem
+}
