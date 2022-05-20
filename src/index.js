@@ -22,6 +22,7 @@ import EstilosContador from './componentes/contador/contador.css'
 import EstilosAgregarCarrito from './componentes/btn-agregar-carrito/btn-agregar-carrito.css'
 import Item from './componentes/Item/Item'
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
+import ItemDetailConainer from './componentes/ItemDetailContainer/ItemDetailContainer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -50,6 +51,9 @@ root.render(
     <div className='itemsApi'>
       <ItemListContainer/>
     </div>
+  
+      <ItemDetailConainer/>
   </React.StrictMode>
+
 );
 reportWebVitals();

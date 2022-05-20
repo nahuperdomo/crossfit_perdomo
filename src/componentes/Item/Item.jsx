@@ -7,7 +7,7 @@ function Item(props){
                 <img src={props.imagen}></img>
                 <p className="descpricionApi">{props.descripcion}</p>
                 <button className="AgregarCarrito">Comprar</button>
-                {console.log(props.imagen)}
+          
                 </div>
             </div>
         ) 
