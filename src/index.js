@@ -24,16 +24,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <BrowserRouter>
-      <Navbar/>
-    <Routes>
-      <Route path="/" element = { <Titulo titulo='Bienvenido a Perdomo Crossfit' /> } />
-      <Route path='/productos' element = {<Contenedor/>}/>
-      <Route path='detalle/id' element={<Detalle/>}/>
-      <Route path='/tienda' element={<ItemDetailConainer/>}/>
-      <Route path="/*" element={<Navigate to='/'/>}/>
-    </Routes>
-    </BrowserRouter>
   </React.StrictMode>
 
 );

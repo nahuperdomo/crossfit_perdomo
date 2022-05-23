@@ -26,25 +26,24 @@ let objetos = [
         resolve(objetos);
       }, 3000);
     });
-    
-
-
-
-
 
 const ItemListConainer= () => {
     const[valor, setValor] = useState([]);
+    const[id,SetId] = useState();
     const[loading, setLoading] = useState(true)
 
     useEffect(() => {
         getFetch.then(response => setValor(response))
+        .then(resp => SetId(resp.id))
         .catch(error => console.log(error))
         .finally(() => setLoading(false)) 
     },[])
     
     return (
-    
-        <ItemList items={valor} cargando={loading}/>
+      <div className="ContainerProductos">
+        <ItemList items={valor} cargando={loading} id={id}/>
+
+      </div>
     
   );
 }

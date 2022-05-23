@@ -1,9 +1,6 @@
 import {React} from 'react';
 import Contador from '../contador/contador';
-import Straps from './straps.jpg';
-import Suplemento from './suplemento.webp';
 import EstilosCardImagen from '../componente-imagenes/imagen-componente.css'
-import EstilosContador from '../contador/contador.css'
 import EstilosAgregarCarrito from '../btn-agregar-carrito/btn-agregar-carrito.css'
 import { Link } from 'react-router-dom';
 function Contenedor() {
@@ -16,7 +13,7 @@ function Contenedor() {
                     <p>"Estas son unas pesas rusas de excelente calidad"</p>
                 </div>
                 <Contador stock={6} minimo={0} inicial={1}/>
-                <Link to='/detalle/1'>
+                <Link to='/detalle:1'>
                     <button>Detalle del producto</button>   
                 </Link>
             </div>
@@ -26,7 +23,7 @@ function Contenedor() {
                     <p>"Te presentamos estos straps para que tengas mejor agarre en tus ejercicios"</p>
                 </div>
                 <Contador stock={10} minimo={0} inicial={1}/>
-                <Link to='/detalle/2'>
+                <Link to='/detalle:2'>
                     <button>Detalle del producto</button>   
                 </Link>
             </div>
@@ -36,7 +33,7 @@ function Contenedor() {
                     <p>"Whey Protein para que llegues a tu proteina necesaria"</p>
                 </div>
                 <Contador stock={3} minimo={0} inicial={1}/>
-                <Link to='/detalle/3'>
+                <Link to='/detalle:3'>
                     <button>Detalle del producto</button>   
                 </Link>
             </div>
