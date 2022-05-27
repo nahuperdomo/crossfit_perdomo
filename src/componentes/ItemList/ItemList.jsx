@@ -15,10 +15,9 @@ const ItemList = (props) => {
         </div>
             :
         props.items.map((item,id) => (
-            <Item imagen={item.imagen} descripcion = {item.descripcion}id={item.id} tipo = {'Descrpcion'}/>
+            <Item imagen={item.imagen} descripcion = {item.descripcion} id={item.id} tipo = {'Descripcion'}/>
         ))
     );
-
 
 }
 export default ItemList;

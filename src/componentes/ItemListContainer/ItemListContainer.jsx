@@ -19,6 +19,23 @@ let objetos = [
       'https://cdn.shopify.com/s/files/1/2137/4785/files/Straps.jpg?v=1638189332&width=640',
     descripcion: 'Straps para ayudar a tu agarre y que no te limite tu entrenamiento.',
   },
+  {
+    id: '4',
+    imagen: 'https://cdn.shopify.com/s/files/1/2137/4785/products/star-nutrition-wheyprotein-1000grs-vainilla-copia-scaled.jpg?v=1638801752&width=960',
+    descripcion: 'Star Nutrition Whey Protein 2,2lb',
+  },
+  {
+    id: '5',
+    imagen:
+      'https://cdn.shopify.com/s/files/1/2137/4785/products/ENA_WHEY_PROTEIN.jpg?v=1559559448&width=420',
+    descripcion: 'ENA WHEY PROTEIN TRUE MADE 1KG',
+  },
+  {
+    id: '6',
+    imagen:
+      'https://cdn.shopify.com/s/files/1/2137/4785/products/optimum-nutrition-100-gold-standard-5lb-chocolate.jpg?v=1544340450&width=960',
+    descripcion: 'Whey Protein 5lb / Optimum Nutrition.',
+  },
 ];
 
     const getFetch = new Promise((resolve) => {

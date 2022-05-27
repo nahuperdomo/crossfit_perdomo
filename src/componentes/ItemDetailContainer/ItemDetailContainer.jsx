@@ -16,10 +16,12 @@ const ItemDetailConainer=(props)=>{
     },[])
 
     return(
-        
+        cargando ? <h1>Cargando...</h1>
+        :
         <div>
             
-            <ItemDetail producto={productos} cargando = {cargando}/>
+            <ItemDetail producto={productos}/>
+            
 
         </div>
     )

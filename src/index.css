@@ -39,4 +39,44 @@ body{
 .ContainerProductos{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
+
+.contenidoDetail{
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.descripcionItem{
+  width: 30rem;
+  font-size: 1.3rem;
+  text-align: center;
+
+}
+
+.containerBtn{
+  display: flex;
+  justify-content: space-around;
+}
+
+.contadorgral{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.btn-addcarrito{
+  background-color: #198754;
+  border-radius: 10px;
+  color: black;
+  font-size: 1.3rem;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  padding: 0.7rem;
+  margin: 0.5rem;
+}
+
