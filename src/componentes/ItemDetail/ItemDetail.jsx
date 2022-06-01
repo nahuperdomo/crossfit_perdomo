@@ -9,7 +9,6 @@ const ItemDetail = (props)=>{
                
         console.log(props.cargando),
         <>
-
         <div className="contenidoDetail">
             <div className="divItem">
             <img src={props.producto.imagen} alt="productoFitness" />
@@ -21,7 +20,6 @@ const ItemDetail = (props)=>{
                 <Contador stock={props.producto.stock} minimo={props.producto.minimo}></Contador>
             </div>
         </div>
-
         
         </>
     )

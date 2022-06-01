@@ -4,14 +4,14 @@ function Navbar(props) {
     return (
       <div className="Navbar">
         <ul className="navbar">
-            <Link to={"/:"+props.tipo}>
-              <li><a href="#">Accesorios</a></li>
+            <Link to="/accesorios">
+              <li>Accesorios</li>
             </Link>
-            <Link to='/:tipo'>
-              <li><a href="#">Suplementacion</a></li>
+            <Link to='/suplementos'>
+              <li>Suplementacion</li>
             </Link>
             <Link to='/'>
-              <li><a href="#">Tienda</a></li>
+              <li>Tienda</li>
             </Link>
             <Link to='/carrito'>
               <li>Carrito</li>

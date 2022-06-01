@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import {Contador} from "../contador/contador"
 function Item(props){
     return(
         props.cargando ? 

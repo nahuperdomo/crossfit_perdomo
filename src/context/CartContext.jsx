@@ -6,10 +6,13 @@ const CartContextProvider = ({children}) =>{
         //Estados y funciones globales
         const [cartList, setcartList] = useState([])
 
+        function addToCart(item){
+            setcartList(item)
+        }
 
 
         return(
-        <CartContext.Provider value={ { cartList} }>
+        <CartContext.Provider value={ { cartList, addToCart } }>
 
             {children}
             

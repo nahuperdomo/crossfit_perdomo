@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom";
 const Swal = require('sweetalert2')
 
@@ -32,10 +32,14 @@ function Contador(props){
         }
     }
 
+   {/** const { addToCart } = useContext(CartContextProvider);
+
     const onAdd = () => {
         setClickeado(true);
         alert(count);
+        addToCart({ producto, cantidad: count });
     }
+ */}
     ///////////////////////////////////////////
     return(
         
@@ -65,7 +69,7 @@ function Contador(props){
                 </Link>
                 </>
                 :
-                <button className="btn-addcarrito" onClick={onAdd}>Agregar al Carrito</button>
+                <button className="btn-addcarrito">Agregar al Carrito</button>
             }
 
             </div>
