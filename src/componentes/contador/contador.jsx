@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react"
+import { CartContextProvider } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 const Swal = require('sweetalert2')
 
 function Contador(props){
     const [count, setCount] = useState(1);
     const [clickeado, setClickeado] = useState(false);
-
+    const { addItemToCart } = useContext(CartContextProvider);
     //FUNCIONES PARA AGREGAR Y QUITAR ELEMENTOS
  
     function contadorMas(){
@@ -32,15 +33,13 @@ function Contador(props){
         }
     }
 
-   {/** const { addToCart } = useContext(CartContextProvider);
-
     const onAdd = () => {
         setClickeado(true);
         alert(count);
-        addToCart({ producto, cantidad: count });
+       {/*addToCart({ producto, cantidad: count }); */} 
     }
- */}
     ///////////////////////////////////////////
+ 
     return(
         
         <div className="contadorgral">
@@ -64,12 +63,12 @@ function Contador(props){
                     <button className="btn-addcarrito">Ir al Carrito</button>
                 </Link>
 
-                <Link to={'/cart'}>
+                <Link to={'/'}>
                     <button className="btn-addcarrito">Seguir comprando</button>
                 </Link>
                 </>
                 :
-                <button className="btn-addcarrito">Agregar al Carrito</button>
+                <button className="btn-addcarrito" onClick={() => addItemToCart(props.product)}>Agregar al Carrito</button>
             }
 
             </div>

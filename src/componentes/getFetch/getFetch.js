@@ -3,7 +3,7 @@ let objetos = [
       tipo: 'accesorio',
       stock:'5',
       minimo:'0',
-      id: ':1',
+      id: '1',
       nombre:'Calleras Dojo',
       imagen: 'https://cdn.shopify.com/s/files/1/2137/4785/products/CallerasCarbono3agujerosRosadas2.jpg?v=1631892947&width=960',
       descripcion: 'Las mejores calleras para tus entrenamientos mas duros.',
@@ -14,7 +14,7 @@ let objetos = [
       stock:'10',
       minimo:'0',
       nombre:'Botella Motivacional Dojo',
-      id: ':2',
+      id: '2',
       imagen:
         'https://cdn.shopify.com/s/files/1/2137/4785/files/Botellas_PHone.jpg?v=1642995176&width=640',
       descripcion: 'Botella para motivarte a estar siempre hidratado',
@@ -25,7 +25,7 @@ let objetos = [
       stock:'8',
       minimo:'0',
       nombre:'Straps Dojo',
-      id: ':3',
+      id: '3',
       imagen:
         'https://cdn.shopify.com/s/files/1/2137/4785/files/Straps.jpg?v=1638189332&width=640',
       descripcion: 'Straps para ayudar a tu agarre y que no te limite tu entrenamiento.',
@@ -36,7 +36,7 @@ let objetos = [
       stock:'10',
       minimo:'0',
       nombre:'Star Nutrition Whey Protein 2,2lb',
-      id: ':4',
+      id: '4',
       imagen:
         'https://cdn.shopify.com/s/files/1/2137/4785/products/star-nutrition-wheyprotein-1000grs-vainilla-copia-scaled.jpg?v=1638801752&width=960',
       descripcion: 'Botella para motivarte a estar siempre hidratado',
@@ -47,7 +47,7 @@ let objetos = [
       stock:'10',
       minimo:'0',
       nombre:'ENA WHEY PROTEIN TRUE MADE 1KG',
-      id: ':5',
+      id: '5',
       imagen:
         'https://cdn.shopify.com/s/files/1/2137/4785/products/ENA_WHEY_PROTEIN.jpg?v=1559559448&width=420',
       descripcion: 'ENA WHEY PROTEIN TRUE MADE 1KG',
@@ -58,7 +58,7 @@ let objetos = [
       stock:'10',
       minimo:'0',
       nombre:'Whey Protein 5lb / Optimum Nutrition.',
-      id: ':6',
+      id: '6',
       imagen:'https://cdn.shopify.com/s/files/1/2137/4785/products/optimum-nutrition-100-gold-standard-5lb-chocolate.jpg?v=1544340450&width=960',
       descripcion: 'Whey Protein 5lb / Optimum Nutrition.',
       descripcionLarga:"100% Whey Gold Standard de Optimun Nutrition es una proteína de alta calidad elaborada principalmente a base de aislado y concentrado de proteína de suero.100% Whey Gold Standard es una proteína de referencia, perfecta para alcanzar los requerimientos proteicos diarios, contribuyendo al adecuado desarrollo y recuperación muscular."

@@ -6,17 +6,20 @@ import ItemDetailConainer from './componentes/ItemDetailContainer/ItemDetailCont
 import Carrito from './componentes/Carrito/Carrito';
 import { useParams } from 'react-router-dom';
 import ItemListConainer from './componentes/ItemListContainer/ItemListContainer';
+import { CartContextProvider } from './context/CartContext';
 function App() {
   return (
-    <div className="App">  
+    <div className="App">
         <BrowserRouter>        
             <Navbar/>
             <Routes>
-              <Route exact path="/" element = { <ItemListConainer/> } />
-              <Route exact path='/:tipo' element = { <ItemListConainer/> } />
-              <Route exact path="/detalle/:id" element = { <ItemDetailConainer/> } />
-              <Route exact path="/carrito" element={<Carrito/>}/>
-              <Route exact path='/*' element = { <ItemListConainer/> } />
+              <Route  path="/" element = { <ItemListConainer/> } />
+              <Route  path='/:tipo' element = { <ItemListConainer/> } />
+      {/* <CartContextProvider> */}
+              <Route  path="/detalle/:id" element = { <ItemDetailConainer/> } />
+        {/* </CartContextProvider>   */}
+              <Route  path="/carrito" element={<Carrito/>}/>
+              <Route  path='/*' element = { <ItemListConainer/> } />
             </Routes>
         </BrowserRouter>
     </div>

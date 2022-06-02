@@ -4,7 +4,7 @@ function Navbar(props) {
     return (
       <div className="Navbar">
         <ul className="navbar">
-            <Link to="/accesorios">
+            <Link to='/accesorios'>
               <li>Accesorios</li>
             </Link>
             <Link to='/suplementos'>

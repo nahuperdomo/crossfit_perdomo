@@ -6,8 +6,6 @@ import Contadorestilos from '../contador/contador.css'
 const ItemDetail = (props)=>{
 
     return(    
-               
-        console.log(props.cargando),
         <>
         <div className="contenidoDetail">
             <div className="divItem">
@@ -17,7 +15,7 @@ const ItemDetail = (props)=>{
                 <h2>{props.producto.nombre}</h2>
                 <p>{props.producto.descripcionLarga}</p>
                 {console.log(props.producto.minimo)}
-                <Contador stock={props.producto.stock} minimo={props.producto.minimo}></Contador>
+                <Contador product={props.producto} stock={props.producto.stock} minimo={props.producto.minimo}></Contador>
             </div>
         </div>
         

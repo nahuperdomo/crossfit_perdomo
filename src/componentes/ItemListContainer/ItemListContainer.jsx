@@ -1,5 +1,6 @@
-import React, { useState, useEffect,useParams } from "react";
+import React, { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
+import {useParams} from "react-router-dom";
 let objetos = [
   {
     tipo: "accesorios",
@@ -52,7 +53,6 @@ const ItemListConainer= () => {
     
     
     const[valor, setValor] = useState([]);
-    const[id,SetId] = useState();
     const {tipo} = useParams();
     const[loading, setLoading] = useState(true)
 
@@ -67,7 +67,7 @@ const ItemListConainer= () => {
         .finally(() => setLoading(false)) 
       }
       
-    },[])
+    }, [tipo])
     
     return (
       <div className="ContainerProductos">
