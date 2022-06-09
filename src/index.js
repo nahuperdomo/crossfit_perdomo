@@ -6,13 +6,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import EstilosNavbar from './componentes/navbar/navbar.css';
 import EstilosTitulo from './componentes/titulo/Titulo.css';
-import EstilosSubtitulo from './componentes/subtitulos/subtitulo.css';
 import EstilosFooter from './componentes/footer/footer.css'
-
-
+import getFirestoreApp from './firebase/config';
 import EstilosContenedorObjetos from './componentes/contenedor/contenedor-objetos.css'
-
 import Contenedor from './componentes/contenedor/contenedor-objetos';
+
+getFirestoreApp();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

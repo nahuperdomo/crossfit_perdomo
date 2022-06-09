@@ -8,8 +8,8 @@ const ItemList = (props) => {
     return(
         props.cargando ? 
         <div>
-            <div class="spinner-border text-primary" role="status">
-            <span class="sr-only"></span>
+            <div className="spinner-border text-primary" role="status">
+            <span className="sr-only"></span>
             </div>
                <h2>Estamos cargando los productos para ti!!</h2>
         </div>

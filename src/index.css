@@ -80,3 +80,14 @@ body{
   margin: 0.5rem;
 }
 
+.img-carrito{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 20%;
+}
+
+.card-item-carrito{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

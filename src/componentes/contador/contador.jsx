@@ -1,54 +1,46 @@
 import React, { useContext, useState } from "react"
-import { CartContextProvider } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 const Swal = require('sweetalert2')
 
-function Contador(props){
+function Contador({ stock, minimo, onAdd }) {
     const [count, setCount] = useState(1);
     const [clickeado, setClickeado] = useState(false);
-    const { addItemToCart } = useContext(CartContextProvider);
-    //FUNCIONES PARA AGREGAR Y QUITAR ELEMENTOS
- 
-    function contadorMas(){
-        if(props.stock <= count){
+
+
+    function contadorMas() {
+        if (stock <= count) {
             Swal.fire(
                 'Error!!',
-                'No nos queda mas stock, el maximo es: ' + props.stock ,
+                'No nos queda mas stock, el maximo es: ' + stock,
                 'error'
-              )
-        }else{
-            setCount( count + 1 );
+            )
+        } else {
+            setCount(count + 1);
         }
     }
 
-    function contadorMenos(){
-        if(props.minimo >= count){
+    function contadorMenos() {
+        if (minimo >= count) {
             Swal.fire(
                 'Error!!',
-                'El valor minimo es ' + props.minimo ,
+                'El valor minimo es ' + minimo,
                 'error'
-              )
-        }else{
-            setCount( count - 1 );
+            )
+        } else {
+            setCount(count - 1);
         }
     }
 
-    const onAdd = () => {
-        setClickeado(true);
-        alert(count);
-       {/*addToCart({ producto, cantidad: count }); */} 
-    }
-    ///////////////////////////////////////////
- 
-    return(
-        
+
+    return (
+
         <div className="contadorgral">
             <div className="contador">
                 <button onClick={contadorMenos} className="menos">
                     -
                 </button>
                 <div className="cero">
-                        {count}
+                    {count}
                 </div>
                 <button onClick={contadorMas} className="mas">
                     +
@@ -56,20 +48,20 @@ function Contador(props){
             </div>
             <div className="containerBtn">
 
-            {
-                clickeado ?
-                <>
-                <Link to={'/carrito'}>
-                    <button className="btn-addcarrito">Ir al Carrito</button>
-                </Link>
+                {
+                    clickeado ?
+                        <>
+                            <Link to={'/carrito'}>
+                                <button className="btn-addcarrito">Ir al Carrito</button>
+                            </Link>
 
-                <Link to={'/'}>
-                    <button className="btn-addcarrito">Seguir comprando</button>
-                </Link>
-                </>
-                :
-                <button className="btn-addcarrito" onClick={() => addItemToCart(props.product)}>Agregar al Carrito</button>
-            }
+                            <Link to={'/'}>
+                                <button className="btn-addcarrito">Seguir comprando</button>
+                            </Link>
+                        </>
+                        :
+                        <button className="btn-addcarrito" onClick={() => { onAdd(count); setClickeado(true) }}>Agregar al Carrito</button>
+                }
 
             </div>
         </div>

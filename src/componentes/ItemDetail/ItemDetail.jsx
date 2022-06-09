@@ -1,27 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Contador from "../contador/contador";
-import Item from "../Item/Item";
-import Contadorestilos from '../contador/contador.css'
+import { CartContext } from "../../context/CartContext";
 
-const ItemDetail = (props)=>{
+const ItemDetail = ({ producto }) => {
 
-    return(    
+    const { addItemToCart } = useContext(CartContext);
+
+    const onAdd = (count) => {
+        addItemToCart({ ...producto, cantidad: count })
+    }
+    return (
         <>
-        <div className="contenidoDetail">
-            <div className="divItem">
-            <img src={props.producto.imagen} alt="productoFitness" />
+            <div className="contenidoDetail">
+                <div className="divItem">
+                    <img src={producto.imagen} alt="productoFitness" />
+                </div>
+                <div className="descripcionItem">
+                    <h2>{producto.nombre}</h2>
+                    <p>{producto.descripcionLarga}</p>
+                    <Contador product={producto} stock={producto.stock} minimo={producto.minimo} onAdd={onAdd} />
+                </div>
             </div>
-            <div className="descripcionItem">
-                <h2>{props.producto.nombre}</h2>
-                <p>{props.producto.descripcionLarga}</p>
-                {console.log(props.producto.minimo)}
-                <Contador product={props.producto} stock={props.producto.stock} minimo={props.producto.minimo}></Contador>
-            </div>
-        </div>
-        
+
         </>
     )
-    
+
 }
 
 

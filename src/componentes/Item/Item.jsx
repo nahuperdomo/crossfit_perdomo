@@ -7,7 +7,6 @@ function Item(props){
         props.cargando ? 
         <div><h1>Cargando</h1></div> 
         : 
-       console.log(props),
             <div className="divItem">
                 <div className="item">
                     <img src={props.imagen}></img>

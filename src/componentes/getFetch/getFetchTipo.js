@@ -1,6 +1,7 @@
 let objetos = [
     {
       tipo: 'accesorio',
+      precio:'$20',
       stock:'5',
       minimo:'0',
       id: ':1',
@@ -11,6 +12,7 @@ let objetos = [
     },
     {
       tipo: 'accesorio',
+      precio:'$20',
       stock:'10',
       minimo:'0',
       nombre:'Botella Motivacional Dojo',
@@ -22,6 +24,7 @@ let objetos = [
     },
     { 
       tipo: 'accesorio',
+      precio:'$20',
       stock:'8',
       minimo:'0',
       nombre:'Straps Dojo',
@@ -33,6 +36,7 @@ let objetos = [
     },
     {
       tipo: 'suplemento',
+      precio:'$20',
       stock:'10',
       minimo:'0',
       nombre:'Star Nutrition Whey Protein 2,2lb',
@@ -44,6 +48,7 @@ let objetos = [
     },
     {
       tipo: 'suplemento',
+      precio:'$20',
       stock:'10',
       minimo:'0',
       nombre:'ENA WHEY PROTEIN TRUE MADE 1KG',
@@ -55,6 +60,7 @@ let objetos = [
     },
     {
       tipo: 'suplemento',
+      precio:'$20',
       stock:'10',
       minimo:'0',
       nombre:'Whey Protein 5lb / Optimum Nutrition.',

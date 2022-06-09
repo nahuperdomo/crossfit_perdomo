@@ -10,18 +10,18 @@ import { CartContextProvider } from './context/CartContext';
 function App() {
   return (
     <div className="App">
-        <BrowserRouter>        
-            <Navbar/>
-            <Routes>
-              <Route  path="/" element = { <ItemListConainer/> } />
-              <Route  path='/:tipo' element = { <ItemListConainer/> } />
-      {/* <CartContextProvider> */}
-              <Route  path="/detalle/:id" element = { <ItemDetailConainer/> } />
-        {/* </CartContextProvider>   */}
-              <Route  path="/carrito" element={<Carrito/>}/>
-              <Route  path='/*' element = { <ItemListConainer/> } />
-            </Routes>
-        </BrowserRouter>
+       <CartContextProvider> 
+          <BrowserRouter>        
+              <Navbar/>
+              <Routes>
+                <Route  path="/" element = { <ItemListConainer/> } />
+                <Route  path='/:tipo' element = { <ItemListConainer/> } />
+                <Route  path="/detalle/:id" element = { <ItemDetailConainer/> } />
+                <Route  path="/carrito" element={<Carrito/>}/>
+                <Route  path='/*' element = { <ItemListConainer/> } />
+              </Routes>
+          </BrowserRouter>
+        </CartContextProvider>   
     </div>
   );
 }
