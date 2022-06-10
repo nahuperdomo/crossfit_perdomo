@@ -33,27 +33,20 @@ export const CartContextProvider = ({ children }) => {
     }
 
      const deleteItemFromCart = (product) => {
-        const productoExistente = cartItems.find(item => item.id === product.id);
-        if (productoExistente.cantidad === 1) {
-            setcartItem(productoExistente => productoExistente.id !== product.id);
+        setcartItem(cartItems.filter(item => item.id != product.id ));
         }
-        else {
-            setcartItem((productoExistente) => {
-                if (productoExistente.id === product.id) {
-                    return { ...productoExistente, cantidad: productoExistente.cantidad - 1 };
-                } else return productoExistente;
-            });
-        }
-    };
+    
 
-   /*  const vaciarCarrito = () => {
+     const vaciarCarrito = () => {
         setcartItem([]);
     }
- */
 
+    const totalPrecio = () => {
+        return cartItems.reduce((contador, prod) => contador + (prod.cantidad * prod.precio) ,0)
+    }
 
     return (
-        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItemFromCart }}>
+        <CartContext.Provider value={{ cartItems, addItemToCart, deleteItemFromCart, vaciarCarrito,totalPrecio }}>
             {children}
         </CartContext.Provider>
     );
