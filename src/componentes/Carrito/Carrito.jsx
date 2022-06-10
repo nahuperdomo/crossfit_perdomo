@@ -1,20 +1,28 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
-
+const Swal = require('sweetalert2')
 function Carrito() {
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
-
    return (
      <div className="container">
        {cartItems.length === 0 ? 
-                <div className="container mt-5 w-100 h-100">
-                    <div className="bg-secondary w-100 h-100  rounded"><p className=" text-white display-5 p-3">No tienes productos en el carrito aun</p> </div>
-                    <hr />
-                    <Link to='/'>
-                        <button className='btn btn-outline-secondary text-white'>Ir a la tienda a seleccionar productos</button>
-                    </Link>
-                </div>
+                Swal.fire({
+                  title: 'Ops!',
+                  text: 'Tu carrito esta vacio, ve a la tienda y agrega nuvos productos',
+                  imageUrl: 'https://pedidos.mostazagreenburger.com/static/images/cart/empty_cart.png',
+                  imageWidth: 400,
+                  imageHeight: 200,
+                  imageAlt: 'Custom image',
+                  confirmButtonText: 'Ir a la tienda',
+                  confirmButtonColor: '#00a8ff',
+                }).then((result) => {
+                  if (result.value) {
+                    window.location.href = '/';
+                  }
+
+                })
+                
             :
             <>
             
