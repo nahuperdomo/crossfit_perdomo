@@ -33,7 +33,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
      const deleteItemFromCart = (product) => {
-        setcartItem(cartItems.filter(item => item.id != product.id ));
+        setcartItem(cartItems.filter(item => item.id !== product.id ));
         }
     
 

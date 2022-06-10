@@ -1,9 +1,60 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {CartContext} from "../../context/CartContext";
+import { getFirestore, doc, getDoc, getDocs, collection, where, addDoc, query} from 'firebase/firestore'
 const Swal = require('sweetalert2')
 function Carrito() {
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
+
+
+  function generarOrden() {
+    let orden = {}
+    orden.buyer = {
+      name: "Nahuel",
+      lastName: "Perdomo",
+      email: "nahuperdomo123@gmail.com",
+      phone: "099015742",
+    }
+  orden.total = totalPrecio();
+  orden.items = cartItems.map(item => {
+      const id = item.id;  
+      const nombre = item.nombre
+      const precio = item.precio * item.cantidad
+      const cantidad = item.cantidad
+
+      return {nombre, precio, cantidad}
+  })
+  //SE CREA SI NO ESTA LA TABLA COLLECCION collection.
+  const db = getFirestore();
+  const queryCollection = collection(db, "orders")
+  //le genera el id automatico ya.
+    addDoc(queryCollection, orden)
+    .then(resp => console.log(resp))
+    .catch(err => console.log(err))
+    //porque ya se realizo la compra y se vacia el carrito con nuestra funcion
+    .finally(()=> vaciarCarrito())
+}
+
+
+  function btnComprar(){
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "No podras revertir esta accion",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, generar orden'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Generado!',
+          'Tu orden ha sido generada',
+          'success'
+        )
+      }
+    })
+  }
    return (
      <div className="container">
        {cartItems.length === 0 ? 
@@ -20,7 +71,6 @@ function Carrito() {
                   if (result.value) {
                     window.location.href = '/';
                   }
-
                 })
                 
             :
@@ -57,7 +107,7 @@ function Carrito() {
                 <p className="text-white me-5 display-5">Precio Total</p>
                 <p className="text-white me-5 display-5">{totalPrecio()}</p>
                 <button className="btn btn-danger mb-4" onClick={vaciarCarrito}>Vaciar carrito</button>
-                <button className="btn btn-success ms-5 mb-4">Comprar</button>
+                <button className="btn btn-success ms-5 mb-4" onClick={generarOrden}>Comprar</button>
                 </div>
               </div>
             </>
