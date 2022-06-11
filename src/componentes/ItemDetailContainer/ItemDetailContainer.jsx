@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
-import { getFetch } from "../getFetch/getFetch";
 import { getFirestore, doc, getDoc} from 'firebase/firestore'
 
 const ItemDetailConainer = () => {
 
     const [productos, setProducto] = useState([]);
     const { id } = useParams();
-    const [cargando, setCargando] = useState(true);
+   /*  const [cargando, setCargando] = useState(true); */
 
 
     useEffect(() => {
@@ -17,7 +16,7 @@ const ItemDetailConainer = () => {
         getDoc(dbQuery)
         .then(resp=> setProducto({id: resp.id, ...resp.data()}))
         .catch(err=> console.log(err))
-        .finally(()=> setCargando(false))
+        /* .finally(()=> setCargando(false)) */
       }, [])
 
     return (

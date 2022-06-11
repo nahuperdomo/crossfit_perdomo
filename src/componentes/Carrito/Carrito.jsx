@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+
 import {CartContext} from "../../context/CartContext";
-import { getFirestore, doc, getDoc, getDocs, collection, where, addDoc, query} from 'firebase/firestore'
+import { getFirestore,collection, addDoc,} from 'firebase/firestore'
 const Swal = require('sweetalert2')
 function Carrito() {
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
-
 
   function generarOrden() {
     let orden = {}
@@ -17,7 +16,7 @@ function Carrito() {
     }
   orden.total = totalPrecio();
   orden.items = cartItems.map(item => {
-      const id = item.id;  
+     /*  const id = item.id;   */
       const nombre = item.nombre
       const precio = item.precio * item.cantidad
       const cantidad = item.cantidad
@@ -36,7 +35,7 @@ function Carrito() {
 }
 
 
-  function btnComprar(){
+  /* function btnComprar(){
     Swal.fire({
       title: '¿Estas seguro?',
       text: "No podras revertir esta accion",
@@ -54,7 +53,7 @@ function Carrito() {
         )
       }
     })
-  }
+  } */
    return (
      <div className="container">
        {cartItems.length === 0 ? 

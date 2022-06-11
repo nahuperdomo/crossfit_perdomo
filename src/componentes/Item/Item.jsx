@@ -10,12 +10,14 @@ function Item(props){
             <div className="divItem">
                 <div className="item">
                     <img src={props.imagen}></img>
-                    <p className="descpricionApi">{props.descripcion}</p>
+                    <p className="text-white mt-3">{props.descripcion}</p>
                     <Link to={"/detalle/"+props.id}>
-                        <button className="AgregarCarrito">{props.tipo}</button>
+                        <button className="btn btn-success mb-3">{props.tipo}</button>
                     </Link>
                 </div>
+                <hr className="text-white"/>
             </div>
+
         ) 
     }
     
