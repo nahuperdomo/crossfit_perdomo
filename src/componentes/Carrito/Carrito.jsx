@@ -1,18 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import {CartContext} from "../../context/CartContext";
 import { getFirestore,collection, addDoc,} from 'firebase/firestore'
 const Swal = require('sweetalert2')
 function Carrito() {
+  const [email, setemail] = useState('')
+  const [nombre, setnombre] = useState('')
+  const [apellido, setapellido] = useState('')
+
+  const [telefono, settelefono] = useState('')
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
 
   function generarOrden() {
     let orden = {}
     orden.buyer = {
-      name: "Nahuel",
-      lastName: "Perdomo",
-      email: "nahuperdomo123@gmail.com",
-      phone: "099015742",
+      name: {nombre},
+      lastName: {apellido},
+      email: {email},
+      phone: {telefono},
     }
   orden.total = totalPrecio();
   orden.items = cartItems.map(item => {
@@ -22,7 +27,10 @@ function Carrito() {
       const cantidad = item.cantidad
 
       return {nombre, precio, cantidad}
-  })
+    
+  },
+  btnComprar()
+  )
   //SE CREA SI NO ESTA LA TABLA COLLECCION collection.
   const db = getFirestore();
   const queryCollection = collection(db, "orders")
@@ -35,7 +43,7 @@ function Carrito() {
 }
 
 
-  /* function btnComprar(){
+   function btnComprar(){
     Swal.fire({
       title: '¿Estas seguro?',
       text: "No podras revertir esta accion",
@@ -53,7 +61,7 @@ function Carrito() {
         )
       }
     })
-  } */
+  } 
    return (
      <div className="container">
        {cartItems.length === 0 ? 
@@ -102,6 +110,31 @@ function Carrito() {
                   <hr className="text-white" />
                 </div>
                 )}
+                <div className="d-flex justify-content-center flex-column">
+                  <p className="text-white display-5">Antes de continuar, rellene los siguientes campos:</p>
+                  <form className="submit d-flex justify-content-center" 
+                    onSubmit={ev => {ev.preventDefault();
+                      setnombre(ev.target.nombre.value);
+                      setapellido(ev.target.apellido.value);
+                      settelefono(ev.target.celular.value);
+                      setemail(ev.target.email.value);
+                      alert('Te registraste con exito, ahora puedes comprar')
+                    }}
+                  >
+
+                    <div className="form-group d-flex flex-column w-50 justify-content-center">
+                        <label className="text-white" >Nombre</label>
+                        <input type="text" name="nombre" />
+                        <label className="text-white" htmlFor="exampleInputEmail1">Apellido</label>
+                        <input type="text" name="apellido" />
+                        <label className="text-white" htmlFor="exampleInputEmail1">Celular</label>
+                        <input type="text" name="celular" />
+                        <label className="text-white" htmlFor="exampleInputEmail1">Email</label>
+                        <input type="text" name="email" />
+                        <button type="submit" className="btn btn-primary">Registrarme</button>
+                    </div>
+                  </form>
+                </div>
                 <div className="d-flex">
                 <p className="text-white me-5 display-5">Precio Total</p>
                 <p className="text-white me-5 display-5">{totalPrecio()}</p>
