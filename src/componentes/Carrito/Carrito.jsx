@@ -7,10 +7,9 @@ function Carrito() {
   const [email, setemail] = useState('')
   const [nombre, setnombre] = useState('')
   const [apellido, setapellido] = useState('')
-
   const [telefono, settelefono] = useState('')
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
-
+  const [entraXCarrito, setEntraXCarrito] = useState(false);
   function generarOrden() {
     let orden = {}
     orden.buyer = {
@@ -19,6 +18,7 @@ function Carrito() {
       email: {email},
       phone: {telefono},
     }
+    setEntraXCarrito(current => !current);
   orden.total = totalPrecio();
   orden.items = cartItems.map(item => {
      /*  const id = item.id;   */
@@ -57,28 +57,35 @@ function Carrito() {
         Swal.fire(
           'Generado!',
           'Tu orden ha sido generada',
-          'success'
+          'success',
+          setTimeout(() => {
+          window.location.href = '/'
+          },3000)
         )
       }
     })
   } 
    return (
      <div className="container">
-       {cartItems.length === 0 ? 
-                Swal.fire({
-                  title: 'Ops!',
-                  text: 'Tu carrito esta vacio, ve a la tienda y agrega nuvos productos',
-                  imageUrl: 'https://pedidos.mostazagreenburger.com/static/images/cart/empty_cart.png',
-                  imageWidth: 400,
-                  imageHeight: 200,
-                  imageAlt: 'Custom image',
-                  confirmButtonText: 'Ir a la tienda',
-                  confirmButtonColor: '#00a8ff',
-                }).then((result) => {
-                  if (result.value) {
-                    window.location.href = '/';
-                  }
-                })
+       {cartItems.length === 0 ?
+          entraXCarrito ?
+            console.log('entra por boton comprar')
+          :
+            Swal.fire({
+              title: 'Ops!',
+              text: 'Tu carrito esta vacio, ve a la tienda y agrega nuvos productos',
+              imageUrl: 'https://pedidos.mostazagreenburger.com/static/images/cart/empty_cart.png',
+              imageWidth: 400,
+              imageHeight: 200,
+              imageAlt: 'Custom image',
+              confirmButtonText: 'Ir a la tienda',
+              confirmButtonColor: '#00a8ff',
+            }).then((result) => {
+              if (result.value) {
+                window.location.href = '/';
+              }
+            })
+          
                 
             :
             <>
