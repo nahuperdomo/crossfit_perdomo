@@ -34,11 +34,15 @@ export const CartContextProvider = ({ children }) => {
 
      const deleteItemFromCart = (product) => {
         setcartItem(cartItems.filter(item => item.id !== product.id ));
+        const productosEnLocalStorage = localStorage.getItem("cartProducts");
+        const productosEnLocalStorageFiltrados = JSON.parse(productosEnLocalStorage).filter(item => item.id !== product.id);
+        localStorage.setItem("cartProducts", JSON.stringify(productosEnLocalStorageFiltrados));
         }
     
 
      const vaciarCarrito = () => {
         setcartItem([]);
+        localStorage.clear();
     }
 
     const totalPrecio = () => {
