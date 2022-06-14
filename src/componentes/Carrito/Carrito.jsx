@@ -10,6 +10,11 @@ function Carrito() {
   const [telefono, settelefono] = useState('')
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
   const [entraXCarrito, setEntraXCarrito] = useState(false);
+  const [idOrden, setIdOrden] = useState();
+  const [validacion, setValidacion] = useState(false);
+
+  
+
   function generarOrden() {
     let orden = {}
     orden.buyer = {
@@ -21,11 +26,9 @@ function Carrito() {
     setEntraXCarrito(current => !current);
   orden.total = totalPrecio();
   orden.items = cartItems.map(item => {
-     /*  const id = item.id;   */
       const nombre = item.nombre
       const precio = item.precio * item.cantidad
       const cantidad = item.cantidad
-
       return {nombre, precio, cantidad}
     
   },
@@ -36,7 +39,7 @@ function Carrito() {
   const queryCollection = collection(db, "orders")
   //le genera el id automatico ya.
     addDoc(queryCollection, orden)
-    .then(resp => console.log(resp))
+    .then(resp =>  setIdOrden(resp.id) )
     .catch(err => console.log(err))
     //porque ya se realizo la compra y se vacia el carrito con nuestra funcion
     .finally(()=> vaciarCarrito())
@@ -44,27 +47,41 @@ function Carrito() {
 
 
    function btnComprar(){
+    validacion == true ?
+      Swal.fire({
+        title: '¿Estas seguro?',
+        text: "No podras revertir esta accion",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, generar orden'
+      }).then((result) => {
+        if (result.value) {
+          console.log(idOrden);
+          Swal.fire(
+            'Generado!',
+            'Tu orden ha sido generada con el id: ' + {idOrden},
+            'success',
+            setTimeout(() => {
+            window.location.href = '/'
+            },5000)
+          )
+        }
+      })
+    :
     Swal.fire({
-      title: '¿Estas seguro?',
-      text: "No podras revertir esta accion",
+      title: 'ERROR',
+      text: "Debes llenar el formulario para poder generar la orden",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, generar orden'
+      cancelButtonColor: '#d33'
     }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Generado!',
-          'Tu orden ha sido generada',
-          'success',
-          setTimeout(() => {
-          window.location.href = '/'
-          },3000)
-        )
-      }
-    })
-  } 
+    if (result.value) {
+      window.location.href = '/carrito'
+    }})
+  }
+
    return (
      <div className="container">
        {cartItems.length === 0 ?
@@ -122,9 +139,13 @@ function Carrito() {
                   <form className="submit d-flex justify-content-center" 
                     onSubmit={ev => {ev.preventDefault();
                       setnombre(ev.target.nombre.value);
+                      nombre == '' ? setValidacion(false) : setValidacion(true);
                       setapellido(ev.target.apellido.value);
+                      apellido == '' ? setValidacion(false) : setValidacion(true);
                       settelefono(ev.target.celular.value);
+                      telefono == '' ? setValidacion(false) : setValidacion(true);
                       setemail(ev.target.email.value);
+                      email == '' ? setValidacion(false) : setValidacion(true);
                       alert('Te registraste con exito, ahora puedes comprar')
                     }}
                   >
