@@ -11,43 +11,15 @@ function Carrito() {
   const {cartItems, deleteItemFromCart, vaciarCarrito,totalPrecio} = useContext(CartContext)
   const [entraXCarrito, setEntraXCarrito] = useState(false);
   const [idOrden, setIdOrden] = useState();
-  const [validacion, setValidacion] = useState(false);
+  const [validacion, setValidacion] = useState(true);
 
   
 
-  function generarOrden() {
-    let orden = {}
-    orden.buyer = {
-      name: {nombre},
-      lastName: {apellido},
-      email: {email},
-      phone: {telefono},
-    }
-    setEntraXCarrito(current => !current);
-  orden.total = totalPrecio();
-  orden.items = cartItems.map(item => {
-      const nombre = item.nombre
-      const precio = item.precio * item.cantidad
-      const cantidad = item.cantidad
-      return {nombre, precio, cantidad}
-    
-  },
-  btnComprar()
-  )
-  //SE CREA SI NO ESTA LA TABLA COLLECCION collection.
-  const db = getFirestore();
-  const queryCollection = collection(db, "orders")
-  //le genera el id automatico ya.
-    addDoc(queryCollection, orden)
-    .then(resp =>  setIdOrden(resp.id) )
-    .catch(err => console.log(err))
-    //porque ya se realizo la compra y se vacia el carrito con nuestra funcion
-    .finally(()=> vaciarCarrito())
-}
+
 
 
    function btnComprar(){
-    validacion == true ?
+    validacion === true ?
       Swal.fire({
         title: '¿Estas seguro?',
         text: "No podras revertir esta accion",
@@ -61,7 +33,7 @@ function Carrito() {
           console.log(idOrden);
           Swal.fire(
             'Generado!',
-            'Tu orden ha sido generada con el id: ' + {idOrden},
+            'Tu orden ha sido generada con el id: ' + /* {id} */,
             'success',
             setTimeout(() => {
             window.location.href = '/'
@@ -82,6 +54,35 @@ function Carrito() {
     }})
   }
 
+    function generarOrden() {
+    let orden = {}
+    orden.buyer = {
+      name: {nombre},
+      lastName: {apellido},
+      email: {email},
+      phone: {telefono},
+    }
+    setEntraXCarrito(current => !current);
+  orden.total = totalPrecio();
+  orden.items = cartItems.map(item => {
+      const nombre = item.nombre
+      const precio = item.precio * item.cantidad
+      const cantidad = item.cantidad
+      return {nombre, precio, cantidad}
+    
+  },
+  )
+  //SE CREA SI NO ESTA LA TABLA COLLECCION collection.
+  const db = getFirestore();
+  const queryCollection = collection(db, "orders")
+  //le genera el id automatico ya.
+    addDoc(queryCollection, orden)
+    .then(resp => setIdOrden(resp.id))
+    .then(()=>btnComprar())
+    .catch(err => console.log(err))
+    //porque ya se realizo la compra y se vacia el carrito con nuestra funcion
+    .finally(()=> vaciarCarrito())
+}
    return (
      <div className="container">
        {cartItems.length === 0 ?
@@ -139,13 +140,13 @@ function Carrito() {
                   <form className="submit d-flex justify-content-center" 
                     onSubmit={ev => {ev.preventDefault();
                       setnombre(ev.target.nombre.value);
-                      nombre == '' ? setValidacion(false) : setValidacion(true);
+                     /*  nombre == '' ? setValidacion(false) : setValidacion(true); */
                       setapellido(ev.target.apellido.value);
-                      apellido == '' ? setValidacion(false) : setValidacion(true);
+                     /*  apellido == '' ? setValidacion(false) : setValidacion(true); */
                       settelefono(ev.target.celular.value);
-                      telefono == '' ? setValidacion(false) : setValidacion(true);
+                      /* telefono == '' ? setValidacion(false) : setValidacion(true); */
                       setemail(ev.target.email.value);
-                      email == '' ? setValidacion(false) : setValidacion(true);
+                     /*  email == '' ? setValidacion(false) : setValidacion(true); */
                       alert('Te registraste con exito, ahora puedes comprar')
                     }}
                   >
