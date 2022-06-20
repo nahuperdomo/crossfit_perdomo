@@ -35,11 +35,11 @@ function Contador({ stock, minimo, onAdd }) {
     return (
 
         <div className="d-flex flex-direction-column">
-            <div className="contador">
+            <div>
                 <button onClick={contadorMenos} className="btn btn-danger">
                     -
                 </button>
-                <div className="cero">
+                <div >
                     {count}
                 </div>
                 <button onClick={contadorMas} className="btn btn-success">

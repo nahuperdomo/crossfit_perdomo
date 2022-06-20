@@ -118,7 +118,7 @@ function Carrito() {
                           <p className="text-white">{item.nombre}</p>
 
                         </div>
-                        <div className="cantidad d-flex align-items-center justify-content-center">
+                        <div className="cantidad d-flex align-items-center justify-content-center flex-direction-row">
                               <p className="text-white me-5">Cantidad</p>
                               <p className="text-white display-5">{item.cantidad}</p>
                               <button className="btn btn-danger ms-4" onClick={()=> deleteItemFromCart(item)}>-</button>
