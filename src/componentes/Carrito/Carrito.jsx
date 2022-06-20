@@ -135,7 +135,7 @@ function Carrito() {
                   <hr className="text-white" />
                 </div>
                 )}
-                <div className="d-flex justify-content-center flex-column">
+                <div className="d-flex justify-content-center flex-column align-items-center">
                   <p className="text-white display-5">Antes de continuar, rellene los siguientes campos:</p>
                   <form className="submit d-flex justify-content-center" 
                   //validar formulario 
@@ -163,7 +163,7 @@ function Carrito() {
                     }
                   }
                   }>
-                    <div className="form-group d-flex flex-column w-50 justify-content-center">
+                    <div className="form-group d-flex flex-column w-50 justify-content-center align-items-center">
                         <label className="text-white" >Nombre</label>
                         <input type="text" name="nombre" />
                         <label className="text-white" htmlFor="exampleInputEmail1">Apellido</label>
@@ -172,14 +172,14 @@ function Carrito() {
                         <input type="text" name="celular" />
                         <label className="text-white" htmlFor="exampleInputEmail1">Email</label>
                         <input type="text" name="email" />
-                        <button type="submit" className="btn btn-success">Comprar</button>
+                        <div className="d-flex justify-content-center align-items-center">
+                        <p className="text-white me-5 display-5">Precio Total</p>
+                        <p className="text-white me-5 display-5">{totalPrecio()}$</p>
+                        <button className="btn btn-danger me-2 h-50" onClick={vaciarCarrito}>Vaciar carrito</button>
+                              <button type="submit" className="btn btn-success h-50">Comprar</button>
+                        </div>
                     </div>
                   </form>
-                </div>
-                <div className="d-flex">
-                <p className="text-white me-5 display-5">Precio Total</p>
-                <p className="text-white me-5 display-5">{totalPrecio()}</p>
-                <button className="btn btn-danger mb-4" onClick={vaciarCarrito}>Vaciar carrito</button>
                 </div>
               </div>
             </>
