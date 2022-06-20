@@ -13,12 +13,7 @@ function Carrito() {
   const [idOrden, setIdOrden] = useState();
   const [validacion, setValidacion] = useState(true);
 
-  
-
-
-
-
-   function btnComprar(){
+   function btnComprar(id){
     validacion === true ?
       Swal.fire({
         title: '¿Estas seguro?',
@@ -33,11 +28,11 @@ function Carrito() {
           console.log(idOrden);
           Swal.fire(
             'Generado!',
-            'Tu orden ha sido generada con el id: ' + /* {id} */
+            'Tu orden ha sido generada con el id: ' + id,
             'success',
             setTimeout(() => {
             window.location.href = '/'
-            },5000)
+            },3000)
           )
         }
       })
@@ -77,8 +72,7 @@ function Carrito() {
   const queryCollection = collection(db, "orders")
   //le genera el id automatico ya.
     addDoc(queryCollection, orden)
-    .then(resp => setIdOrden(resp.id))
-    .then(()=>btnComprar())
+    .then((resp)=>btnComprar(resp.id))
     .catch(err => console.log(err))
     //porque ya se realizo la compra y se vacia el carrito con nuestra funcion
     .finally(()=> vaciarCarrito())
