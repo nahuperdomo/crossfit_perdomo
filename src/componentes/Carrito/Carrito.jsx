@@ -33,7 +33,7 @@ function Carrito() {
           console.log(idOrden);
           Swal.fire(
             'Generado!',
-            'Tu orden ha sido generada con el id: ' + /* {id} */,
+            'Tu orden ha sido generada con el id: ' + /* {id} */
             'success',
             setTimeout(() => {
             window.location.href = '/'
@@ -138,19 +138,31 @@ function Carrito() {
                 <div className="d-flex justify-content-center flex-column">
                   <p className="text-white display-5">Antes de continuar, rellene los siguientes campos:</p>
                   <form className="submit d-flex justify-content-center" 
-                    onSubmit={ev => {ev.preventDefault();
-                      setnombre(ev.target.nombre.value);
-                     /*  nombre == '' ? setValidacion(false) : setValidacion(true); */
-                      setapellido(ev.target.apellido.value);
-                     /*  apellido == '' ? setValidacion(false) : setValidacion(true); */
-                      settelefono(ev.target.celular.value);
-                      /* telefono == '' ? setValidacion(false) : setValidacion(true); */
-                      setemail(ev.target.email.value);
-                     /*  email == '' ? setValidacion(false) : setValidacion(true); */
-                      alert('Te registraste con exito, ahora puedes comprar')
-                    }}
-                  >
-
+                  //validar formulario 
+                  onSubmit={(e)=>{
+                    e.preventDefault();
+                    //acceder a valores del formulario
+                    const email = e.target.email.value;
+                    const nombre = e.target.nombre.value;
+                    const apellido = e.target.apellido.value;
+                    const celular = e.target.celular.value;
+                    if(nombre === '' || apellido === '' || email === '' || celular === ''){
+                      Swal.fire(
+                        'Disculpe',
+                        'Para poder generar la orden, debes llenar todos los campos',
+                        'warning'
+                      )
+                    }
+                    else{
+                      setValidacion(true);
+                      setnombre(e.target.nombre.value);
+                      setapellido(e.target.apellido.value);
+                      settelefono(e.target.celular.value);
+                      setemail(e.target.email.value);
+                      generarOrden();
+                    }
+                  }
+                  }>
                     <div className="form-group d-flex flex-column w-50 justify-content-center">
                         <label className="text-white" >Nombre</label>
                         <input type="text" name="nombre" />
@@ -160,7 +172,7 @@ function Carrito() {
                         <input type="text" name="celular" />
                         <label className="text-white" htmlFor="exampleInputEmail1">Email</label>
                         <input type="text" name="email" />
-                        <button type="submit" className="btn btn-primary">Registrarme</button>
+                        <button type="submit" className="btn btn-success">Comprar</button>
                     </div>
                   </form>
                 </div>
@@ -168,7 +180,6 @@ function Carrito() {
                 <p className="text-white me-5 display-5">Precio Total</p>
                 <p className="text-white me-5 display-5">{totalPrecio()}</p>
                 <button className="btn btn-danger mb-4" onClick={vaciarCarrito}>Vaciar carrito</button>
-                <button className="btn btn-success ms-5 mb-4" onClick={generarOrden}>Comprar</button>
                 </div>
               </div>
             </>
