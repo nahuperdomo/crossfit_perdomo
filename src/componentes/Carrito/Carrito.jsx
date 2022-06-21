@@ -25,7 +25,7 @@ function Carrito() {
         confirmButtonText: 'Si, generar orden'
       }).then((result) => {
         if (result.value) {
-    
+          console.log(idOrden);
           Swal.fire(
             'Generado!',
             'Tu orden ha sido generada con el id: ' + id,
@@ -81,6 +81,7 @@ function Carrito() {
      <div className="container">
        {cartItems.length === 0 ?
           entraXCarrito ?
+            console.log('entra por boton comprar')
           :
             Swal.fire({
               title: 'Ops!',
